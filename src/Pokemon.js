@@ -20,7 +20,6 @@ export default class Pokemon extends React.Component {
             return(
                 <div>
                     <h1>Still loading Pokemon data...</h1>
-
                 </div>
             )
         }

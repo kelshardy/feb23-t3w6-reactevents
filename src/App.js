@@ -26,7 +26,7 @@ class App extends React.Component {
 
   decreasePokemonCount(currentCount){
     if (currentCount > 0){
-      this.setState({pokemonCount: this.state.pokemonCount -1});
+      this.setState({pokemonCount: this.state.pokemonCount - 1});
     }
   }
 
@@ -38,10 +38,14 @@ class App extends React.Component {
         {/* <button onClick={this.exampleFunction}>Increase Pokemon Count</button>
         <button onClick={() => {console.log("Hello world, from inline expression")}}>Decrease Pokemon Count</button> */}
         
-        <button onClick={this.setState({pokemonCount: this.state.pokemonCount + 1})}>Increase Pokemon Count</button>
-        <button onClick={this.decreasePokemonCount(this.state.pokemonCount)}>Decrease Pokemon Count</button>
+        <button onClick={() => this.setState({pokemonCount: this.state.pokemonCount + 1})}>Increase Pokemon Count</button>
+        <button onClick={() => this.decreasePokemonCount(this.state.pokemonCount)}>Decrease Pokemon Count</button>
 
-        <Pokemon></Pokemon>
+        {/* <Pokemon></Pokemon> */}
+        {
+          // Array(arraySize).fill(default value).map(arrayValue => {return some JSX here})
+          Array(this.state.pokemonCount).fill(null).map((element, index) => <Pokemon key={index}/>)
+        }
       </div>
     )
   }
